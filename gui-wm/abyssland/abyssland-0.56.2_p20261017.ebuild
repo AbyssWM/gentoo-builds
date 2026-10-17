@@ -20,6 +20,7 @@ DEPEND="
 	>=dev-libs/abysscursor-0.1.13:0=
 	>=dev-libs/abyssgraphics-0.5.1:0=
 	>=dev-libs/abyssutils-0.14.2:0=
+	>=dev-libs/abysswire-0.3.1:0=
 	>=dev-libs/libinput-1.29
 	>=dev-libs/wayland-protocols-1.49
 	dev-cpp/muParser
@@ -34,6 +35,7 @@ DEPEND="
 	media-libs/libglvnd
 	media-libs/mesa
 	sys-apps/util-linux
+	sys-libs/readline
 	x11-libs/cairo
 	x11-libs/libXcursor
 	x11-libs/libdrm

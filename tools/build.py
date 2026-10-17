@@ -30,7 +30,7 @@ command = ["bwrap", "--unshare-user", "--uid", "0", "--gid", "0",
            "--ro-bind", "/sys", "/sys", "--ro-bind", "/etc/resolv.conf", "/etc/resolv.conf",
            "--ro-bind", str(root), "/overlay", "/usr/bin/env", "-i",
            "PATH=/usr/sbin:/usr/bin:/sbin:/bin", "HOME=/root", "LANG=C.UTF-8",
-           "ACCEPT_KEYWORDS=~amd64", "/usr/bin/emerge", "--getbinpkg", "--usepkg", "--oneshot"]
+           "/usr/bin/emerge", "--getbinpkg", "--usepkg", "--oneshot"]
 if args.pretend:
     command += ["--pretend"]
     targets = ["all"]
