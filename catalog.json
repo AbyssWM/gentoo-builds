@@ -254,7 +254,9 @@
       ],
       "build_internal": [],
       "library": true,
-      "soname": 2
+      "soname": 2,
+      "gentoo_revision": 1,
+      "gentoo_distfile": "Abyssparse-45d399ec11762312395d62f1e66f6d3c4b53c482.tar.gz"
     },
     "Abysswire": {
       "name": "abysswire",

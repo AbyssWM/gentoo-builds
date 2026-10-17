@@ -16,6 +16,9 @@ def write(path, text):
 def gentoo(package, catalog, sources):
     name = package["name"]
     version = package["version"] + "_p" + sources["snapshot_date"]
+    revision = package.get("gentoo_revision", 0)
+    suffix = f"-r{revision}" if revision else ""
+    distfile = package.get("gentoo_distfile", "${P}.tar.gz")
     directory = ROOT / package["category"] / name
     deps = [catalog["dependencies"][key]["gentoo"] for key in package["dependencies"]]
     for dependency in package["internal"]:
@@ -40,7 +43,7 @@ inherit {"meson" if package["build_system"] == "meson" else "cmake"}
 DESCRIPTION="{package["description"]}"
 HOMEPAGE="https://github.com/AbyssWM/{package["repo"]}"
 ABYSS_COMMIT="{package["commit"]}"
-SRC_URI="https://github.com/AbyssWM/{package["repo"]}/archive/${{ABYSS_COMMIT}}.tar.gz -> ${{P}}.tar.gz"
+SRC_URI="https://github.com/AbyssWM/{package["repo"]}/archive/${{ABYSS_COMMIT}}.tar.gz -> {distfile}"
 S="${{WORKDIR}}/{package["repo"]}-${{ABYSS_COMMIT}}"
 
 LICENSE="{package["gentoo_license"]}"
@@ -73,10 +76,12 @@ KEYWORDS="~amd64"
             text += '\t\t-DABYSS_CONFIG_DIR="${WORKDIR}/empty-config"\n'
         text += '\t)\n\tcmake_src_configure\n}\n'
     text += f'\nsrc_install() {{\n\t{package["build_system"]}_src_install\n\tdodoc LICENSE\n'
+    if name == "abyssparse":
+        text += '\tdodoc COPYING COPYRIGHT\n'
     if name == "abyssland":
         text += '\tnewdoc "${WORKDIR}/glaze-7.2.0/LICENSE" glaze-LICENSE\n'
     text += '}\n'
-    write(directory / f"{name}-{version}.ebuild", text)
+    write(directory / f"{name}-{version}{suffix}.ebuild", text)
     write(directory / "metadata.xml", f'''<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
@@ -89,7 +94,8 @@ KEYWORDS="~amd64"
 \t</upstream>
 </pkgmetadata>
 ''')
-    write(directory / "Manifest", f'DIST {name}-{version}.tar.gz {package["size"]} BLAKE2B {package["blake2b"]} SHA512 {package["sha512"]}\n')
+    manifest_distfile = package.get("gentoo_distfile", f"{name}-{version}.tar.gz")
+    write(directory / "Manifest", f'DIST {manifest_distfile} {package["size"]} BLAKE2B {package["blake2b"]} SHA512 {package["sha512"]}\n')
     if name == "abyssland":
         extra = sources["extras"]["glaze"]
         with (directory / "Manifest").open("a") as manifest:
