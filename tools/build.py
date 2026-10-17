@@ -11,6 +11,7 @@ parser.add_argument("buildroot", type=Path)
 parser.add_argument("packages", nargs="*")
 parser.add_argument("--logs", type=Path, required=True)
 parser.add_argument("--pretend", action="store_true")
+parser.add_argument("--map-auto", action="store_true", help="use configured subordinate UID/GID ranges for real package ownership")
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 buildroot = args.buildroot.resolve()
@@ -31,6 +32,12 @@ command = ["bwrap", "--unshare-user", "--uid", "0", "--gid", "0",
            "--ro-bind", str(root), "/overlay", "/usr/bin/env", "-i",
            "PATH=/usr/sbin:/usr/bin:/sbin:/bin", "HOME=/root", "LANG=C.UTF-8",
            "/usr/bin/emerge", "--getbinpkg", "--usepkg", "--oneshot"]
+if args.map_auto:
+    command.remove("--unshare-user")
+    capabilities = ["CAP_CHOWN", "CAP_DAC_OVERRIDE", "CAP_FOWNER", "CAP_FSETID", "CAP_SETUID", "CAP_SETGID"]
+    for capability in capabilities:
+        command[1:1] = ["--cap-add", capability]
+    command = ["unshare", "--map-auto", "--map-root-user"] + command
 if args.pretend:
     command += ["--pretend"]
     targets = ["all"]
@@ -45,6 +52,7 @@ for target in targets:
     with log.open("w") as output:
         result = subprocess.run(command + atoms, stdout=output, stderr=subprocess.STDOUT)
     receipt.append({"package": target, "pretend": args.pretend,
+                    "subordinate_uid_mapping": args.map_auto,
                     "exit_code": result.returncode, "log": log.name})
     (args.logs / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
     if result.returncode:

@@ -28,6 +28,12 @@ source archive; the packager's personal configuration is never compiled in.
 using Bubblewrap. It requires an explicit `.abyss-private-buildroot` marker;
 it does not bootstrap Gentoo or change the host system. Test-root setup must
 account for the single-user namespace and provide its package/USE configuration.
+`--map-auto` uses already configured subordinate UID/GID ranges through `unshare`
+and the standard rootless mapping helpers. This permits real service-account
+ownership inside the private root. It requires working newuidmap/newgidmap and
+does not create or change host accounts. A single-UID namespace alone cannot
+install dependencies which need other service users/groups. A buildroot run
+still does not test authentication or a booted Gentoo desktop session.
 
 ```sh
 python3 tools/build.py /path/to/private-stage3 --logs out/logs --pretend
