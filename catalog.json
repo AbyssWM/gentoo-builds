@@ -452,7 +452,8 @@
       },
       "build_dependencies": [
         "python"
-      ]
+      ],
+      "gentoo_revision": 1
     },
     "Abyss-guiutils": {
       "name": "abyss-guiutils",

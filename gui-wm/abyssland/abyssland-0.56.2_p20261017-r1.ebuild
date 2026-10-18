@@ -78,4 +78,7 @@ src_install() {
 	cmake_src_install
 	dodoc LICENSE
 	newdoc "${WORKDIR}/glaze-7.2.0/LICENSE" glaze-LICENSE
+	sed -e "s|^Name=.*|Name=Abyssland (D-Bus)|" -e "s|^Exec=.*|Exec=dbus-run-session /usr/bin/start-abyssland|" \
+		"${ED}/usr/share/wayland-sessions/abyssland.desktop" \
+		> "${ED}/usr/share/wayland-sessions/abyssland-dbus.desktop" || die
 }

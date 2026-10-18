@@ -80,6 +80,10 @@ KEYWORDS="~amd64"
         text += '\tdodoc COPYING COPYRIGHT\n'
     if name == "abyssland":
         text += '\tnewdoc "${WORKDIR}/glaze-7.2.0/LICENSE" glaze-LICENSE\n'
+        # OpenRC has no user session bus, so offer a session that starts its own D-Bus
+        text += '\tsed -e "s|^Name=.*|Name=Abyssland (D-Bus)|" -e "s|^Exec=.*|Exec=dbus-run-session /usr/bin/start-abyssland|" \\\n'
+        text += '\t\t"${ED}/usr/share/wayland-sessions/abyssland.desktop" \\\n'
+        text += '\t\t> "${ED}/usr/share/wayland-sessions/abyssland-dbus.desktop" || die\n'
     text += '}\n'
     write(directory / f"{name}-{version}{suffix}.ebuild", text)
     write(directory / "metadata.xml", f'''<?xml version="1.0" encoding="UTF-8"?>
