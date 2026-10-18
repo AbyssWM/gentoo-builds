@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Dynamic tiling Wayland compositor with C++ configuration"
 HOMEPAGE="https://github.com/AbyssWM/Abyssland"
-ABYSS_COMMIT="eafefb8907b6b6b46990977b56ec83dbcb019957"
+ABYSS_COMMIT="c30ad2a50fc41b2025280ded8b54effb87624480"
 SRC_URI="https://github.com/AbyssWM/Abyssland/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/Abyssland-${ABYSS_COMMIT}"
 

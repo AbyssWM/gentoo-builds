@@ -15,7 +15,7 @@ def write(path, text):
 
 def gentoo(package, catalog, sources):
     name = package["name"]
-    version = package["version"] + "_p" + sources["snapshot_date"]
+    version = package["version"] + "_p" + package.get("snapshot_date", sources["snapshot_date"])
     revision = package.get("gentoo_revision", 0)
     suffix = f"-r{revision}" if revision else ""
     distfile = package.get("gentoo_distfile", "${P}.tar.gz")
