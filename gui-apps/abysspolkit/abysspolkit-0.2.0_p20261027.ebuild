@@ -5,25 +5,28 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="Dialogs and application tools for Abyss"
-HOMEPAGE="https://github.com/AbyssWM/Abyss-guiutils"
-ABYSS_COMMIT="da6646906dab8557440ed8f5cca4157452105fc2"
-SRC_URI="https://github.com/AbyssWM/Abyss-guiutils/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/Abyss-guiutils-${ABYSS_COMMIT}"
+DESCRIPTION="Polkit authentication agent for Abyss"
+HOMEPAGE="https://github.com/AbyssWM/AbyssPolkit"
+ABYSS_COMMIT="b3a214b1948dcebd2f5f0f6cab2e6fdddf7cd486"
+SRC_URI="https://github.com/AbyssWM/AbyssPolkit/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/AbyssPolkit-${ABYSS_COMMIT}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	>=dev-cpp/sdbus-c++-2
+	>=dev-libs/abyssgraphics-0.5.1:0=
 	>=dev-libs/abyssparse-0.6.8:0=
 	>=dev-libs/abysstoolkit-0.6.0:0=
 	>=dev-libs/abyssutils-0.14.2:0=
 	x11-libs/libdrm
-	x11-libs/libxkbcommon
 	x11-libs/pixman
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	sys-auth/polkit
+"
 
 BDEPEND="
 	virtual/pkgconfig

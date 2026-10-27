@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Utility library for the Abyss ecosystem"
 HOMEPAGE="https://github.com/AbyssWM/Abyssutils"
-ABYSS_COMMIT="b423270d43764d3b0f74584fa4a9c61ab1c9b9aa"
+ABYSS_COMMIT="f1f540b7121f6db3c0bb8518a072c1a79755cd82"
 SRC_URI="https://github.com/AbyssWM/Abyssutils/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/Abyssutils-${ABYSS_COMMIT}"
 

@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Graphics and resource library for Abyss"
 HOMEPAGE="https://github.com/AbyssWM/Abyssgraphics"
-ABYSS_COMMIT="22ddc7596eefffcee611181a556ff1a753eaf433"
+ABYSS_COMMIT="5f590f21086f9c1fbb0ca1b0c1d7ffebdfb60945"
 SRC_URI="https://github.com/AbyssWM/Abyssgraphics/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/Abyssgraphics-${ABYSS_COMMIT}"
 

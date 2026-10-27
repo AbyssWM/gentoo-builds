@@ -5,28 +5,26 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="Wayland color picker for Abyss"
-HOMEPAGE="https://github.com/AbyssWM/AbyssPicker"
-ABYSS_COMMIT="fa997857bfc513c240f8b442802dee64d15e1759"
-SRC_URI="https://github.com/AbyssWM/AbyssPicker/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/AbyssPicker-${ABYSS_COMMIT}"
+DESCRIPTION="Display color temperature manager for Abyss"
+HOMEPAGE="https://github.com/AbyssWM/AbyssDusk"
+ABYSS_COMMIT="6c58248dbd91d392fde18aa7764181b80b2da539"
+SRC_URI="https://github.com/AbyssWM/AbyssDusk/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/AbyssDusk-${ABYSS_COMMIT}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	>=dev-libs/abyssparse-0.6.8:0=
 	>=dev-libs/abyssutils-0.14.2:0=
 	>=dev-libs/wayland-protocols-1.49
 	dev-libs/wayland
-	media-libs/libjpeg-turbo
-	x11-libs/cairo
-	x11-libs/libxkbcommon
-	x11-libs/pango
 "
 RDEPEND="${DEPEND}"
 
 BDEPEND="
+	>=dev-libs/abyssland-protocols-0.7.0
 	>=dev-util/abyss-scanner-0.4.5
 	virtual/pkgconfig
 "
