@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Dialogs and application tools for Abyss"
 HOMEPAGE="https://github.com/AbyssWM/Abyss-guiutils"
-ABYSS_COMMIT="b25e0974ae580c63aa23252c4170eb7adf60f98d"
+ABYSS_COMMIT="0afda1ef922bbdf63c74042642cf12a69a449320"
 SRC_URI="https://github.com/AbyssWM/Abyss-guiutils/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/Abyss-guiutils-${ABYSS_COMMIT}"
 

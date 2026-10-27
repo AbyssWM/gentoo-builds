@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Wayland color picker for Abyss"
 HOMEPAGE="https://github.com/AbyssWM/AbyssPicker"
-ABYSS_COMMIT="97240042de866686f1da1db3847ddd5f37603e27"
+ABYSS_COMMIT="6a4a1ccf9de9b8c9a803f75e6e4829e907a08568"
 SRC_URI="https://github.com/AbyssWM/AbyssPicker/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/AbyssPicker-${ABYSS_COMMIT}"
 

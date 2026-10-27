@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Polkit authentication agent for Abyss"
 HOMEPAGE="https://github.com/AbyssWM/AbyssPolkit"
-ABYSS_COMMIT="b3a214b1948dcebd2f5f0f6cab2e6fdddf7cd486"
+ABYSS_COMMIT="d9bc965683bb4b0b90d6039b22fbd39423a37c86"
 SRC_URI="https://github.com/AbyssWM/AbyssPolkit/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/AbyssPolkit-${ABYSS_COMMIT}"
 

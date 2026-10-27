@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Display color temperature manager for Abyss"
 HOMEPAGE="https://github.com/AbyssWM/AbyssDusk"
-ABYSS_COMMIT="6c58248dbd91d392fde18aa7764181b80b2da539"
+ABYSS_COMMIT="b383b3706c40b8b6c0c76ec359ca4b89652f9b46"
 SRC_URI="https://github.com/AbyssWM/AbyssDusk/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/AbyssDusk-${ABYSS_COMMIT}"
 
