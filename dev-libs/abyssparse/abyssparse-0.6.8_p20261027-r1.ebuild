@@ -8,7 +8,7 @@ inherit cmake
 DESCRIPTION="Configuration parsing library for Abyss"
 HOMEPAGE="https://github.com/AbyssWM/Abyssparse"
 ABYSS_COMMIT="6c3c77e8a029e46d7416b84f67aff833f9beedd2"
-SRC_URI="https://github.com/AbyssWM/Abyssparse/archive/${ABYSS_COMMIT}.tar.gz -> Abyssparse-45d399ec11762312395d62f1e66f6d3c4b53c482.tar.gz"
+SRC_URI="https://github.com/AbyssWM/Abyssparse/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/Abyssparse-${ABYSS_COMMIT}"
 
 LICENSE="LGPL-3"
