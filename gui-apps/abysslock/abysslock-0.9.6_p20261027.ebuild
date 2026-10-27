@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Wayland session lock for Abyss"
 HOMEPAGE="https://github.com/AbyssWM/AbyssLock"
-ABYSS_COMMIT="651a5ecf43b742965bca25e99056cf8e7cf83aa3"
+ABYSS_COMMIT="ce1058c6dc4f994af77a9974cb5928ff0222bb2a"
 SRC_URI="https://github.com/AbyssWM/AbyssLock/archive/${ABYSS_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/AbyssLock-${ABYSS_COMMIT}"
 
@@ -36,10 +36,6 @@ BDEPEND="
 	>=dev-util/abyss-scanner-0.4.5
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}/0001-install-pam-in-sysconfdir.patch"
-)
 
 src_configure() {
 	local mycmakeargs=(

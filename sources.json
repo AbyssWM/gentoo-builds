@@ -179,14 +179,15 @@
     },
     {
       "repo": "AbyssLock",
-      "commit": "651a5ecf43b742965bca25e99056cf8e7cf83aa3",
+      "commit": "ce1058c6dc4f994af77a9974cb5928ff0222bb2a",
       "version": "0.9.6",
-      "url": "https://github.com/AbyssWM/AbyssLock/archive/651a5ecf43b742965bca25e99056cf8e7cf83aa3.tar.gz",
-      "filename": "AbyssLock-651a5ecf43b742965bca25e99056cf8e7cf83aa3.tar.gz",
-      "size": 81969,
-      "sha256": "86e77468c4b4c4e598a5a933c16b7436fd3348e02bf0392400838f3c8097f926",
-      "sha512": "bad8764efbaa7fa3fca35ff92470fd57a03700842aa19a885d3d35329f24307809b55c50f6c94ad63d4c1588ba754525ee27f5d96f2da59c1ad5f520815f6a8b",
-      "blake2b": "04ddd6b5986fa44809dfc029263346235f7313cd7da411fbe283883221d077eeff7009084942e02b675697c8bdd70c74ba4d92a9b79cd4f02e1ca7d60360d346"
+      "url": "https://github.com/AbyssWM/AbyssLock/archive/ce1058c6dc4f994af77a9974cb5928ff0222bb2a.tar.gz",
+      "filename": "AbyssLock-ce1058c6dc4f994af77a9974cb5928ff0222bb2a.tar.gz",
+      "size": 83379,
+      "sha256": "6ac29dd099a1e20eed031da1adf6acd10b8f6ebe165bd6ff9027a1e19becd12b",
+      "sha512": "edc08a7842d0f81e723a3cfe0e186fa2c590da6b6430a2a2221ba018391469351868ee3fbaaa0c47c7838b3893b75da884004a8e8621ca6bdc4a27f17ce1b982",
+      "blake2b": "13d1f25164524aa828e69695825c145a25178587d6e1d5abd1eaf73abd027aeddea0420af43ccd0945b7b23419c5f19c61f639f9bb6fc59047c35e56e82aa663",
+      "snapshot_date": "20261027"
     },
     {
       "repo": "AbyssPolkit",
